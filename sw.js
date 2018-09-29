@@ -45,7 +45,8 @@ function fetchAndCache(url) {
   .then(function(response) {
     // Check if we received a valid response
     if (!response.ok) {
-      throw Error(response.statusText);
+      return response;
+      //throw Error(response.statusText);
     }
     return caches.open(CACHE_NAME)
     .then(function(cache) {
